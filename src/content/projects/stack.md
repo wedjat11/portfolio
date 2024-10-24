@@ -1,10 +1,8 @@
-necesito crear un archivo md para referenciar mi contenido en mi coleccion de astro, necesito que me crees los dos archivos, ejemolo: 1er archivo
-title: proyecto uno
-descripcion: lorem ipsum
-stack: astro,js,tailwindcss
+## Astro
+![Astro Logo](/public/assets/astro.svg)
 
-y el segundo archivo solo debe traer las imagenes:
-2do archivo:
-astro:(/public/assets/astro.svg)
+## JavaScript
+![JavaScript Logo](/public/assets/javascript.svg)
 
-el primer archivo va a traer la referencia al segundo, para que sea mas facil de mantener el codigo
+## TailwindCSS
+![TailwindCSS Logo](/public/assets/tailwindcss.svg)
