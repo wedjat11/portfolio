@@ -1,7 +1,17 @@
+---
+interface Props {
+    title: string
+    description: string
+    stack?: string[]
+}
+
+const { title, description, stack = [] } = Astro.props
+---
+
 <article
     class="border-yellow border p-3 shadow-2xl text-white rounded-md hover:scale-105 hover:shadow-4xl transition-all"
 >
-    <p class="text-center font-semibold pb-3">Fotball league</p>
+    <p class="text-center font-semibold pb-3">{title}</p>
     <div class="flex justify-center">
         <img
             src="/public/assets/myAvatar.png"
@@ -10,7 +20,7 @@
         />
     </div>
     <p class="font-light text-[12px] pb-4">
-        A simple app to see the results of a football league
+        {description}
     </p>
     <div>
         <p class="font-bold text-[12px] pb-1">Created with</p>

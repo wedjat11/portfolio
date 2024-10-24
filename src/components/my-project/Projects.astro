@@ -1,14 +1,22 @@
 ---
 import ProjectCard from './ProjectCard.astro'
-import { getCollection, getEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+
+const projects = await getCollection('projects')
 ---
 
 <section class="flex flex-col items-center gap-6">
     <div>
         <h2 class="font-bold">My Projects</h2>
     </div>
-    <ProjectCard />
-    <ProjectCard />
-    <ProjectCard />
-    <ProjectCard />
+    {
+        projects.map((project: { data: { title: any; descripcion: any } }) => {
+            return (
+                <ProjectCard
+                    title={project.data.title}
+                    description={project.data.descripcion}
+                />
+            )
+        })
+    }
 </section>
