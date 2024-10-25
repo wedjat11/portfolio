@@ -10,7 +10,6 @@ interface Props {
 
 const { title, description, stack = [], img, url } = Astro.props
 
-// Función para obtener las imágenes de cada tecnología
 const getStackImage = (tech: string) => {
     const images: { [key: string]: string } = {
         js: '/public/assets/js.svg',
@@ -18,7 +17,6 @@ const getStackImage = (tech: string) => {
         astro: '/public/assets/astro.svg',
         react: '/public/assets/react.svg',
         next: '/public/assets/next.svg',
-        // Puedes añadir más tecnologías si es necesario
     }
 
     return images[tech.toLowerCase()] || null
