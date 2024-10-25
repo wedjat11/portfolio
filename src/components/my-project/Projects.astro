@@ -1,7 +1,6 @@
 ---
 import ProjectCard from './ProjectCard.astro'
 import { getCollection } from 'astro:content'
-
 const projects = await getCollection('projects')
 ---
 
@@ -10,11 +9,14 @@ const projects = await getCollection('projects')
         <h2 class="font-bold">My Projects</h2>
     </div>
     {
-        projects.map((project: { data: { title: any; descripcion: any } }) => {
+        projects.map((project) => {
             return (
                 <ProjectCard
                     title={project.data.title}
                     description={project.data.descripcion}
+                    stack={project.data.stack}
+                    img={project.data.img}
+                    url={project.data.url}
                 />
             )
         })

@@ -1,23 +1,42 @@
 ---
+// ProjectCard.astro
 interface Props {
     title: string
     description: string
+    img: string
     stack?: string[]
+    url?: string
 }
 
-const { title, description, stack = [] } = Astro.props
+const { title, description, stack = [], img, url } = Astro.props
+
+// Función para obtener las imágenes de cada tecnología
+const getStackImage = (tech: string) => {
+    const images: { [key: string]: string } = {
+        js: '/public/assets/js.svg',
+        tailwind: '/public/assets/tailwindcss.svg',
+        astro: '/public/assets/astro.svg',
+        react: '/public/assets/react.svg',
+        next: '/public/assets/next.svg',
+        // Puedes añadir más tecnologías si es necesario
+    }
+
+    return images[tech.toLowerCase()] || null
+}
 ---
 
 <article
-    class="border-yellow border p-3 shadow-2xl text-white rounded-md hover:scale-105 hover:shadow-4xl transition-all"
+    class="border-yellow border p-3 shadow-2xl text-white rounded-md hover:scale-105 hover:shadow-4xl transition-all w-11/12"
 >
     <p class="text-center font-semibold pb-3">{title}</p>
     <div class="flex justify-center">
-        <img
-            src="/public/assets/myAvatar.png"
-            alt="me"
-            class="w-[100px] pb-3"
-        />
+        <a href={url}>
+            <img
+                src=`/public/assets/projects/${img}.webp`
+                alt=`${img} Logo`
+                class="w-[200px] pb-3"
+            />
+        </a>
     </div>
     <p class="font-light text-[12px] pb-4">
         {description}
@@ -25,16 +44,15 @@ const { title, description, stack = [] } = Astro.props
     <div>
         <p class="font-bold text-[12px] pb-1">Created with</p>
         <div class="flex flex-row gap-4">
-            <img
-                src="/public/assets/myAvatar.png"
-                alt="react"
-                class="w-[30px] h-[30px]"
-            />
-            <img
-                src="/public/assets/myAvatar.png"
-                alt="react"
-                class="w-[30px] h-[30px]"
-            />
+            {
+                stack.map((tech) => (
+                    <img
+                        src={getStackImage(tech)}
+                        alt={`${tech} Logo`}
+                        class="w-[30px] h-[30px]"
+                    />
+                ))
+            }
         </div>
     </div>
 </article>

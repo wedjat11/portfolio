@@ -3,14 +3,25 @@ import { z, defineCollection } from 'astro:content'
 
 // 2. Definir un `type` y `schema` para la colección de proyectos
 const projectsCollection = defineCollection({
-    type: 'content', // v2.5.0 y posteriores
+    type: 'content',
     schema: z.object({
         title: z.string(),
+        img: z.string(),
         descripcion: z.string(),
+        stack: z.array(z.string()).optional(),
+        url: z.string().optional(),
     }),
 })
 
-// 3. Exportar un único objeto `collections` para registrar tu(s) colección(es)
+const stackItemsCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        name: z.string(),
+        image: z.string(),
+    }),
+})
+
 export const collections = {
-    projects: projectsCollection, // Cambiado de 'blog' a 'projects'
+    projects: projectsCollection,
+    stackItems: stackItemsCollection,
 }
