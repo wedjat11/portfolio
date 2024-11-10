@@ -17,6 +17,7 @@ const getStackImage = (tech: string) => {
         astro: '/public/assets/astro.svg',
         react: '/public/assets/react.svg',
         next: '/public/assets/next.svg',
+        mui: '/public/assets/mui.svg',
     }
 
     return images[tech.toLowerCase()] || null
@@ -47,7 +48,7 @@ const getStackImage = (tech: string) => {
                     <img
                         src={getStackImage(tech)}
                         alt={`${tech} Logo`}
-                        class="w-[30px] h-[30px]"
+                        class="w-[20px] h-[20px] "
                     />
                 ))
             }

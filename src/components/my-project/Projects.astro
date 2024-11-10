@@ -8,17 +8,19 @@ const projects = await getCollection('projects')
     <div>
         <h2 class="font-bold">My Projects</h2>
     </div>
-    {
-        projects.map((project) => {
-            return (
-                <ProjectCard
-                    title={project.data.title}
-                    description={project.data.descripcion}
-                    stack={project.data.stack}
-                    img={project.data.img}
-                    url={project.data.url}
-                />
-            )
-        })
-    }
+    <div class="flex flex-col gap-6 md:flex-row items-center md:px-3">
+        {
+            projects.map((project: { data: any }) => {
+                return (
+                    <ProjectCard
+                        title={project.data.title}
+                        description={project.data.descripcion}
+                        stack={project.data.stack}
+                        img={project.data.img}
+                        url={project.data.url}
+                    />
+                )
+            })
+        }
+    </div>
 </section>

@@ -1,0 +1,52 @@
+---
+const images = {
+    js: '/public/assets/js.svg',
+    tailwind: '/public/assets/tailwindcss.svg',
+    astro: '/public/assets/astro.svg',
+    react: '/public/assets/react.svg',
+    next: '/public/assets/next.svg',
+    node: '/public/assets/node.svg',
+    git: '/public/assets/git.svg',
+    ui: '/public/assets/mui.svg',
+}
+---
+
+<article class="text-white w-11/12 mx-auto space-y-4">
+    <h3 class="font-bold tex-lg text-yellow text-center">My Stack</h3>
+    <p class="text-justify">
+        Tengo un poco mas de tres años trabajando como desarrollador,
+        actualmente estoy enfocado en el desarrollo front-end, sin embargo, he
+        trabjado como fullstack developer por lo cual tengo conocimentos en
+        ambas areas
+    </p>
+    <p>
+        En los ultimos tiempos he trabajado con tecnologias como
+        <!-- <ul class="list-disc pl-6">
+            <li><span class="font-bold">Next.js</span></li>
+            <li><span class="font-bold">Astro</span></li>
+            <li><span class="font-bold">React</span></li>
+            <li><span class="font-bold">TailwindCSS</span></li>
+            <li><span class="font-bold">Typescript</span></li>
+            <li><span class="font-bold">Javascript</span></li>
+            <li><span class="font-bold">Node.js</span></li>
+            <li><span class="font-bold">Git</span></li>
+            <li><span class="font-bold">GitHub</span></li>
+        </ul> -->
+    </p>
+
+    <section
+        class="mx-auto flex items-center w-3/4 align-middle justify-center"
+    >
+        <div class="flex flex-row gap-4 flex-wrap items-center w-full md:w-1/4">
+            {
+                Object.entries(images).map(([key, src]) => (
+                    <img
+                        src={src}
+                        alt={`${key} Logo`}
+                        class="w-[40px] h-[40px]"
+                    />
+                ))
+            }
+        </div>
+    </section>
+</article>
