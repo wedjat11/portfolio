@@ -1,20 +1,63 @@
 <div class="py-2 h-[60px] text-white px-3">
-    <nav class="flex flex-row justify-between list-none text-[12px] font-bold">
+    <nav
+        class="flex flex-row justify-between items-center list-none text-[12px] font-bold"
+    >
+        <!-- Logo -->
         <li class="font-extrabold text-yellow text-[30px]">T</li>
+
+        <!-- Icono de menú móvil -->
         <div class="flex flex-row gap-2">
-            <img src="/public/assets/menu.svg" alt="menu" class="w-[30px]" />
+            <img
+                src="/public/assets/menu.svg"
+                alt="menu"
+                class="w-[30px] cursor-pointer"
+                id="menuIcon"
+            />
         </div>
     </nav>
+
+    <!-- Menú móvil desplegable -->
+    <div
+        id="mobileMenu"
+        class="fixed top-0 right-0 h-full w-[200px] text-white transform translate-x-full transition-transform duration-300a bg-grbg z-20"
+    >
+        <!-- Cerrar el menú -->
+        <button class="absolute top-4 right-4 text-yellow" id="closeMenu"
+            >✕</button
+        >
+
+        <!-- Opciones del menú -->
+        <ul class="flex flex-col gap-4 p-6 mt-10">
+            <li><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Projects</a></li>
+            <li><a href="#my-stack" onclick="closeMenu()">My Stack</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            <li>
+                <a href="#download-cv" onclick="closeMenu()">Download CV</a>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<!-- <div class="py-2 h-[60px] text-white">
-    <nav class="flex flex-row justify-between list-none text-[12px] font-bold">
-        <li class="font-extrabold text-yellow">T</li>
-        <div class="flex flex-row gap-2">
-            <li>About</li>
-            <li>Portfolio</li>
-            <li>contact</li>
-        </div>
-        <li>Check my blog</li>
-    </nav>
-</div> -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuIcon = document.getElementById('menuIcon')
+        const mobileMenu = document.getElementById('mobileMenu')
+        const closeMenuButton = document.getElementById('closeMenu')
+
+        // Verificar si los elementos existen antes de agregar eventos
+        if (menuIcon && mobileMenu && closeMenuButton) {
+            menuIcon.addEventListener('click', function () {
+                mobileMenu.classList.remove('translate-x-full')
+            })
+
+            closeMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.add('translate-x-full')
+            })
+        } else {
+            console.error(
+                'Uno o más elementos del menú no se encontraron en el DOM.'
+            )
+        }
+    })
+</script>
