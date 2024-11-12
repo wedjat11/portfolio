@@ -1,52 +1,65 @@
 ---
-const images = {
+// Define the images by category
+const frontEndImages = {
     js: '/public/assets/js.svg',
     tailwind: '/public/assets/tailwindcss.svg',
     astro: '/public/assets/astro.svg',
     react: '/public/assets/react.svg',
     next: '/public/assets/next.svg',
+    ui: '/public/assets/mui.svg',
+}
+
+const backEndImages = {
     node: '/public/assets/node.svg',
     git: '/public/assets/git.svg',
-    ui: '/public/assets/mui.svg',
 }
 ---
 
-<article class="text-white w-11/12 mx-auto space-y-4">
-    <h3 class="font-bold tex-lg text-yellow text-center">My Stack</h3>
+<article class="text-white w-11/12 lg:w-full mx-auto space-y-4">
+    <h3 class="font-bold text-lg text-yellow text-center">My Stack</h3>
     <p class="text-justify">
-        Tengo un poco mas de tres años trabajando como desarrollador,
-        actualmente estoy enfocado en el desarrollo front-end, sin embargo, he
-        trabjado como fullstack developer por lo cual tengo conocimentos en
-        ambas areas
+        Tengo un poco más de tres años trabajando como desarrollador,
+        actualmente estoy enfocado en el desarrollo front-end; sin embargo, he
+        trabajado como fullstack developer, por lo cual tengo conocimientos en
+        ambas áreas.
     </p>
-    <p>
-        En los ultimos tiempos he trabajado con tecnologias como
-        <!-- <ul class="list-disc pl-6">
-            <li><span class="font-bold">Next.js</span></li>
-            <li><span class="font-bold">Astro</span></li>
-            <li><span class="font-bold">React</span></li>
-            <li><span class="font-bold">TailwindCSS</span></li>
-            <li><span class="font-bold">Typescript</span></li>
-            <li><span class="font-bold">Javascript</span></li>
-            <li><span class="font-bold">Node.js</span></li>
-            <li><span class="font-bold">Git</span></li>
-            <li><span class="font-bold">GitHub</span></li>
-        </ul> -->
-    </p>
+    <p>En los últimos tiempos he trabajado con tecnologías como:</p>
 
-    <section
-        class="mx-auto flex items-center w-3/4 align-middle justify-center"
-    >
-        <div class="flex flex-row gap-4 flex-wrap items-center w-full md:w-1/4">
-            {
-                Object.entries(images).map(([key, src]) => (
-                    <img
-                        src={src}
-                        alt={`${key} Logo`}
-                        class="w-[40px] h-[40px]"
-                    />
-                ))
-            }
+    <section class="mx-auto w-3/4">
+        <div
+            class="grid grid-cols-1 gap-6 md:grid-cols-2 items-start justify-center"
+        >
+            <!-- Front-End Stack -->
+            <div class="py-3 border-dotted border-2 border-yellow">
+                <h4 class="font-semibold text-center text-yellow">Front-End</h4>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    {
+                        Object.entries(frontEndImages).map(([key, src]) => (
+                            <img
+                                src={src}
+                                alt={`${key} Logo`}
+                                class="w-[40px] h-[40px]"
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Back-End Stack -->
+            <div class="py-3 border-dotted border-2 border-yellow">
+                <h4 class="font-semibold text-center text-yellow">Back-End</h4>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    {
+                        Object.entries(backEndImages).map(([key, src]) => (
+                            <img
+                                src={src}
+                                alt={`${key} Logo`}
+                                class="w-[40px] h-[40px]"
+                            />
+                        ))
+                    }
+                </div>
+            </div>
         </div>
     </section>
 </article>

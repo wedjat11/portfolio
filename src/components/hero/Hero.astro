@@ -1,6 +1,6 @@
-<section class="p-3">
-    <div class="space-y-7 pb-4 flex flex-col items-center">
-        <p class="text-white text-center">
+<section class="p-3 flex flex-col">
+    <div class="space-y-7 pb-4 flex flex-col items-center md:px-6">
+        <p class="text-white text-center md:text-xl">
             I'm <span>Jesus Montiel </span>, fullstack developer focused on the
             front-end development
         </p>
@@ -11,11 +11,18 @@
                 class="grayscale blur-sm"
             />
         </div>
-        <a href="https://www.linkedin.com/in/jesusmontiel11/">
-            <button class="border-yellow border-2 p-2"> Contact me </button>
-        </a>
+        <div class="flex justify-center lg:hidden">
+            <a href="https://www.linkedin.com/in/jesusmontiel11/">
+                <button class="border-yellow border-2 p-2 md:text-xl">
+                    Contact me
+                </button>
+            </a>
+        </div>
     </div>
-    <div class="hidden lg:flex">
+    <div
+        class="hidden lg:flex justify-center md:flex-col items-center gap-4 pt-8"
+    >
+        <p class="text-lg font-bold">Contact me</p>
         <ul
             class="flex flex-row gap-2 list-none justify-center border-b-2 p-2 border-yellow"
         >
@@ -38,5 +45,10 @@
         font-weight: 700;
         color: #ffc86b;
         font-size: 20px;
+    }
+    @media screen and (min-width: 768px) {
+        span {
+            font-size: 26px;
+        }
     }
 </style>
